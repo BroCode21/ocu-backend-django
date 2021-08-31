@@ -17,4 +17,4 @@ class Assignment(models.Model):
     group = models.ManyToOneRel(Group, on_delete=models.CASCADE)
 
     class Meta:
-        ordering = ["-updated_at"]
+        ordering = ["deadline"]
