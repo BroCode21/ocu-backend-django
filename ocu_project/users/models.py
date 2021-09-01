@@ -33,6 +33,8 @@ class User(AbstractBaseUser):
     leader = models.BooleanField(default=False)
     admin = models.BooleanField(default=False)
 
+    USERNAME_FIELD = "email"
+
     def __str__(self):
         return self.email
 
