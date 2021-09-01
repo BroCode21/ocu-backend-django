@@ -48,13 +48,9 @@ class User(AbstractBaseUser):
 
 
 class Student(models.Model):
-    university_id = models.PositiveSmallIntegerField(
-        max_length=8,
-        unique=True,
-        null=False,
-    )
+    university_id = models.PositiveIntegerField(unique=True, null=False)
     full_name = models.CharField(max_length=200, null=False, default="")
-    group = models.ForeignKey(Group, on_delete=models.SET_NULL)
+    group = models.ForeignKey(Group, on_delete=models.SET_NULL, null=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

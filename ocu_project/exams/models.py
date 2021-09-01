@@ -12,8 +12,8 @@ class Exam(models.Model):
     exam_time = models.DateTimeField(null=False, blank=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    posted_by = models.ForeignKey(Student, on_delete=models.SET_NULL)
-    group = models.ManyToOneRel(Group, on_delete=models.CASCADE)
+    posted_by = models.ForeignKey(Student, on_delete=models.SET_NULL, null=True)
+    group = models.ForeignKey(Group, on_delete=models.CASCADE)
 
     class Meta:
         ordering = ["exam_time"]
